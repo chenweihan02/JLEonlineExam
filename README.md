@@ -6,10 +6,10 @@
 
 第一次使用 IDEA git 上传项目到 GitHub
 
---
-JDK: 1.8
-MySQL: 5.6
-Tomcat: 8.5
+---
+JDK: 1.8 <br/>
+MySQL: 5.6 <br/>
+Tomcat: 8.5 <br/>
 ---
 
 ### 数据库设计
