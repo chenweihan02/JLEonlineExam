@@ -3,17 +3,16 @@
   User: xiaochen
   Date: 2021/6/16
   Time: 20:44
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="static/css/bootstrap.css">
-
     <title>登录页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-olOxEXxDwd20BlATUibkEnjPN3sVq2YWmYOnsMYutq7X8YcUdD6y/1I+f+ZOq/47" crossorigin="anonymous">--%>
+    <link rel="stylesheet" href="${basePath}static/css/bootstrap.css" />
 </head>
 <body>
 <div class="container" style="margin-top: 200px;">
@@ -27,12 +26,12 @@
                     <li class="list-group-item">
                         <form action="login" method="post">
                             <div class="form-group">
-                                <label for="InputUsername">姓名</label>
-                                <input type="text" name="username" class="form-control" id="InputUsername" value="1">
+                                <label for="InputUsername2">姓名</label>
+                                <input type="text" name="username" class="form-control" id="InputUsername2" value="1">
                             </div>
                             <div class="form-group">
-                                <label for="InputPassword">密码</label>
-                                <input type="password" name="password" class="form-control" id="InputPassword" value="123456">
+                                <label for="InputPassword2">密码</label>
+                                <input type="password" name="password" class="form-control" id="InputPassword2" value="123456" autocomplete >
                             </div>
                             <input name="type" type="hidden" value="2"/>
                             <button type="submit" class="btn btn-primary">登录</button>
@@ -53,12 +52,12 @@
                     <li class="list-group-item">
                         <form action="login" method="post">
                             <div class="form-group">
-                                <label for="InputUsername">姓名</label>
-                                <input type="text" name="username" class="form-control" id="InputUsername" value="1">
+                                <label for="InputUsername1">姓名</label>
+                                <input type="text" name="username" class="form-control" id="InputUsername1" value="1">
                             </div>
                             <div class="form-group">
-                                <label for="InputPassword">密码</label>
-                                <input type="password" name="password" class="form-control" id="InputPassword" value="123456">
+                                <label for="InputPassword1">密码</label>
+                                <input type="password" name="password" class="form-control" id="InputPassword1" value="123456" autocomplete >
                             </div>
                             <input name="type" type="hidden" value="1"/>
                             <button type="submit" class="btn btn-primary">登录</button>
@@ -84,7 +83,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="InputPassword">密码</label>
-                                <input type="password" name="password" class="form-control" id="InputPassword" value="123456">
+                                <input type="password" name="password" class="form-control" id="InputPassword" value="123456" autocomplete>
                             </div>
                             <input name="type" type="hidden" value="0"/>
                             <button type="submit" class="btn btn-primary">登录</button>

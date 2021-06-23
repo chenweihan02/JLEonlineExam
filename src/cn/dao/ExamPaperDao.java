@@ -1,94 +1,55 @@
 package cn.dao;
 
 import cn.bean.ExamPaper;
-import cn.utils.JdbcUtil;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 
-import java.sql.SQLException;
 import java.util.List;
 
-/** 整个试卷的操作 => 总分, 得分
+/**
  * @author xiaochen
- * @create 2021-06-17 7:18
+ * @create 2021-06-22 14:02
  */
-public class ExamPaperDao {
-    private QueryRunner queryRunner = new QueryRunner(JdbcUtil.getDataSource());
-
+public interface ExamPaperDao {
     /**
-     *  通过学生学号查询所有考试信息 集合
+     * 通过学生学号查询所有考试信息
      * @param studentId
-     * @return
-     * @throws SQLException
+     * @return 某个学生的Exampaper集合
      */
-    public List<ExamPaper> query(String studentId) throws SQLException {
-        String sql = "select * from exampaper where studentId = ?";
-        return queryRunner.query(sql, new BeanListHandler<>(ExamPaper.class), studentId);
-    }
+    public List<ExamPaper> queryExamPaperByStudentId(String studentId);
 
     /**
-     *  根据考试id 查询所有学生的考试信息（分数） 集合
+     * 通过考场考试id 查询所有学生的考试信息（分数）集合
      * @param examId
-     * @return
-     * @throws SQLException
+     * @return 某个考试的Exampaper集合
      */
-    public List<ExamPaper> query(Long examId) throws SQLException {
-        String sql = "select * from exampaper where examId = ?";
-        return queryRunner.query(sql, new BeanListHandler<>(ExamPaper.class),examId);
-    }
+    public List<ExamPaper> queryExamPaperByExamId(int examId);
 
     /**
-     * 根据考场场次和学号,获取试卷.
+     * 通过考场id和学生学号查询 试卷信息
      * @param examId
      * @param studentId
      * @return
-     * @throws SQLException
      */
-    public ExamPaper query(Long examId, String studentId) throws SQLException {
-        String sql = "select * from exampaper where examId = ? and studentId = ?";
-        return queryRunner.query(sql, new BeanHandler<>(ExamPaper.class), examId, studentId);
-    }
+    public ExamPaper queryExamPaperByStudentIdAndExamId(int examId, String studentId);
+
 
     /**
-     * 据考场场次和学号,更新试卷成绩
-     * @param examId
-     * @param studentId
-     * @param score
-     * @throws SQLException
+     * 更新Exampaper信息
+     * @param examPaper
+     * @return
      */
-    public void update(Long examId, String studentId, int score) throws SQLException {
-        String sql = "update exampaper set score = ? where examId = ? and studentId = ?";
-        Object[] params = {score, examId, studentId};
-        queryRunner.update(sql, params);
-    }
+    public int saveExamPaper(ExamPaper examPaper);
 
     /**
-     *  添加卷子
-     * @param examId 考试场次
-     * @param studentId 学生学号
-     * @param totalScore 试卷总分（分值）
-     * @return 试卷对象
-     * @throws SQLException
+     * 新增 Exampaper
+     * @param examPaper
+     * @return
      */
-    public ExamPaper add(Long examId, String studentId, int totalScore) throws SQLException {
-        String sql = "insert into exampaper (examId, studentId, totalScore) values(?,?,?)";
-        Object[] params = {examId, studentId, totalScore};
-        queryRunner.update(sql, params);
-        return query(examId, studentId);
-    }
+    public int addExamPaper(ExamPaper examPaper);
 
-
-
-
-//    public static void main(String[] args) {
-//        ExamPaperDao examPaperDao = new ExamPaperDao();
-//        try {
-////            examPaperDao.add(Long.valueOf(1), "2019112", 20);
-//            System.out.println(examPaperDao.query(Long.valueOf(1), "2019112"));
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
-//    }
-
+    /**
+     * 删除Exampaper
+     * @param examId 考场id
+     * @return
+     */
+    public int deleteExamPaper(int examId);
 }

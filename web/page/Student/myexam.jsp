@@ -1,6 +1,6 @@
 <%@ page import="cn.bean.ExamPaper" %>
 <%@ page import="cn.bean.Exam" %>
-<%@ page import="cn.dao.DaoFactory" %><%--
+<%@ page import="cn.dao.Demo.DaoFactory" %><%--
   Created by IntelliJ IDEA.
   User: xiaochen
   Date: 2021/6/17
@@ -10,17 +10,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%--<%--%>
+<%--    String path = request.getContextPath();--%>
+<%--    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
+<%--%>--%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>列表</title>
-    <base href="<%=basePath%>">
     <link rel="stylesheet" href="${basePath}static/css/index.css" />
     <link rel="stylesheet"
           href="${basePath}static/css/font-awesome-4.7.0/css/font-awesome.min.css" />
@@ -28,74 +28,6 @@
 
 </head>
 <script type="text/javascript">
-    // function search() {
-    //     console.log("search");
-    //     document.form1.action = "../../student?method=listMyExam"
-    //     document.form1.submit();
-    // }
-
-    function countDown( maxtime,fn ) {
-        var timer = setInterval(function() {
-            if(maxtime>0 ){
-                var day = Math.floor(maxtime / 86400),
-                    hour = Math.floor((maxtime % 86400) / 3600),
-                    minutes = Math.floor((maxtime % 3600) / 60),
-                    seconds = Math.floor(maxtime%60),
-                    msg = day+"天"+hour+"时"+minutes+"分"+seconds+"秒";
-                fn( msg );
-                --maxtime;
-            } else {
-                clearInterval( timer );
-                fn("时间到，已结束!");
-            }
-        }, 1000);
-    }
-
-
-    $(function(){
-        console.log("test2");
-        $(".stoptimeDiv").show(function(){
-            var s_i = $(this).attr("s_i");
-            var stoptime = $(this).attr("stoptime");
-            //获取当前时间
-            var date = new Date();
-            var now = date.getTime();
-            console.log("now",now);
-            //设置截止时间
-            var endDate = new Date(stoptime);
-            var end = endDate.getTime();
-
-            var stoptime= $(this).attr("stoptime");
-            //时间差
-
-            var leftTime = (end-now)/1000;
-            console.log(leftTime);
-            countDown( leftTime,function( msg ) {
-                document.getElementById(s_i).innerHTML = msg;
-            })
-        })
-    })
-
-    //查看试卷，继续作答
-    // $(function(){
-    //     $(".upfileBtn").click(function(){
-    //         var stoptime= new Date($(this).attr("stoptime")).getTime();
-    //         var starttime = new Date($(this).attr("starttime")).getTime();
-    //         var nowtime = new Date().getTime();
-    //         console.log(stoptime+" "+nowtime);
-    //         if(nowtime>starttime && nowtime<stoptime){
-    //
-    //
-    //         }else if(starttime<nowtime){
-    //             confirm("考试尚未开始");
-    //         }else if(nowtime>stoptime){
-    //             confirm("考试已经结束");
-    //         }
-    //
-    //
-    //     })
-    // })
-
 </script>
 <body>
 <div style="padding-left: 10px">
@@ -120,18 +52,19 @@
             <th>总分</th>
         </tr>
         </thead>
-        <c:forEach items="${examList}" var="exam">
+        <c:forEach items="${examInfo}" var="exam">
             <tr>
-                <td style="font-size: 12px;">${exam.e_name}</td>
-                <td style="font-size: 12px;">${exam.startTime}</td>
-                <td style="font-size: 12px;">${exam.endTime}</td>
-<%--                href="javascript:void(0);" --%>
-                <td><a href="doExam?examId=${exam.id}" title="答卷">答卷</a></td>
-                <td>?</td>
-                <td>${exam.totalScore}</td>
+                <td style="font-size: 12px;">${exam.key.examName}</td>
+                <td style="font-size: 12px;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${exam.key.startTime}" /></td>
+                <td style="font-size: 12px;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${exam.key.endTime}" /></td>
+                <td><a href="doExam?examId=${exam.key.id}" title="答卷">答卷</a></td>
+                <td style="font-size: 12px;">${exam.value}</td>
+                <td>${exam.key.totalScore}</td>
             </tr>
         </c:forEach>
     </table>
+    <%--静态包含分页条--%>
+    <%@include file="../common/page_nav.jsp"%>
 </div>
 </body>
 </html>

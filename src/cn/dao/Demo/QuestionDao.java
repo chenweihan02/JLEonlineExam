@@ -1,7 +1,7 @@
-package cn.dao;
+package cn.dao.Demo;
 
 import cn.bean.Question;
-import cn.utils.JdbcUtil;
+import cn.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -14,7 +14,7 @@ import java.util.List;
  * @create 2021-06-17 17:12
  */
 public class QuestionDao {
-    private QueryRunner queryRunner = new QueryRunner(JdbcUtil.getDataSource());
+    private QueryRunner queryRunner = new QueryRunner(JdbcUtils.getDataSource());
 
     /**
      * 获取所有的题目

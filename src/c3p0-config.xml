@@ -4,7 +4,7 @@
 	<named-config name="testc3p0">
 		
 		<!-- 指定连接数据源的基本属性 -->
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/db_exam</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/db_exam?characterEncoding=utf8</property>
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
 		<property name="user">root</property>
 		<property name="password">root</property>

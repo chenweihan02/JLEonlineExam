@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: xiaochen
-  Date: 2021/6/17
-  Time: 14:03
-  To change this template use File | Settings | File Templates.
---%>
+<%--User: xiaochen Date: 2021/6/23 Time: 14:03--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,27 +14,29 @@
     <script src="${basePath}static/js/jquery.min.js" type="text/javascript"></script>
 </head>
 <script type="text/javascript">
-    //删除
+    //返回考试列表
     $(function() {
-        $('.remove').click(function(event) {
+        $(".reply").click(function() {
+            window.location.href = "${basePath}exam?action=goback";
+        })
+    })
+
+    //恢复删除
+    $(function() {
+        $(".recovery").click(function() {
+            var examId = $(this).attr("keyword");//进入exam servlet进行操作。
+            window.location.href = "${basePath}exam?action=recovery&examId=" + examId;
+        })
+    })
+
+    //彻底删除
+    $(function() {
+        $(".delPlus").click(function(event) {
             event.stopPropagation()
-            var id = $(this).attr("keyword");
+            var examId = $(this).attr("keyword");//进入exam servlet进行操作。
             if (confirm("确定要删除此考试吗？")) {
-                window.location.href = "${basePath}exam?action=delete&examId=" + id;
+                window.location.href = "${basePath}exam?action=delPlus&examId=" + examId;
             }
-        })
-    })
-    //考试详细
-    $(function() {
-        $(".examline").click(function() {
-            var examId = $(this).attr("examId");//进入exam servlet进行操作。
-            window.location.href = "${basePath}exam?action=detail&examId=" + examId;
-        })
-    })
-    //回收站
-    $(function() {
-        $(".recyclebinbtn").click(function() {
-            window.location.href = "${basePath}exam?action=recyclebin";
         })
     })
 </script>
@@ -48,16 +44,16 @@
 <div style="padding-left: 10px">
     <form name="form1" id="form1" method="post">
         <div class="condition">
-            考试名称：<input type="text" name="examName" size="15" max=30>
+            考试名称：<input type="text" name="e_name" size="15" max=30 >
             <button style="margin-left: 118px;" type="button" onclick="search()">
                 <i class="fa fa-search"></i> 查询
             </button>
         </div>
     </form>
-<%--    Temporary storage--%>
+    <%--    Temporary storage--%>
     <div class="condition">
-        <button type="button" class="recyclebinbtn">
-            <i class="fa fa-refresh"></i> 回收站
+        <button type="button" class="reply">
+            <i class="fa fa-reply"></i> 返回考试列表
         </button>
     </div>
     <table class="tablelist">
@@ -77,9 +73,14 @@
                 <td style="font-size: 12px;"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${exam.endTime}" /></td>
                 <%--待开始  进行中  已结束--%>
                 <td>名称</td>
-                <td><button class="remove" type="button" keyword="${exam.id}">
-                    <i class="fa fa-remove"></i> 删除
-                </button></td>
+                <td>
+                    <button class="recovery" type="button" keyword="${exam.id}">
+                        <i class="fa fa-refresh"></i> 恢复
+                    </button>
+                    <button class="delPlus" type="button" keyword="${exam.id}" style="color: crimson">
+                        <i class="fa fa-remove"></i> 彻底删除
+                    </button>
+                </td>
             </tr>
         </c:forEach>
     </table>

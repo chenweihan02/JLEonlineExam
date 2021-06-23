@@ -42,9 +42,9 @@
     <div class="logo">上机考试系统</div>
     <div class="user" style="min-width:77px">
         <i class="fa fa-caret-down point"></i> <i class="fa fa-user"></i>
-        ${user.t_name}
+        ${user.name}
         <ul>
-            <c:if test="${user.t_isadmin==1}">
+            <c:if test="${user.isAdmin==1}">
                 <li><a href="../Admin/index.jsp">切换管理员</a></li>
             </c:if>
             <li><a href="javascript:void(0)" class="logout">退出登录</a></li>
@@ -61,21 +61,21 @@
                 class="fa fa-angle-right point"></i> 教师权限
         </p>
         <ul>
-            <li><a href="javascript:void(0);" url="../../teacher?method=list" title="所有考试列表">
+            <li><a href="javascript:void(0);" url="../../teacher?action=list" title="所有考试列表">
                     <i class="fa fa-caret-right"></i> 所有考试列表</a>
             </li>
-            <li><a href="javascript:void(0);" url="../../exam?method=mathTest" title="考试管理">
-                <i class="fa fa-caret-right"></i> 考试管理（高数卷子）</a>
-            </li>
-            <li><a href="javascript:void(0);" url="../../question?method=list" title="题库管理">
-                <i class="fa fa-caret-right"></i> 题库管理</a>
-            </li>
-            <li><a href="javascript:void(0);" url="../../teacher?method=analysis" title="成绩统计">
-                <i class="fa fa-caret-right"></i> 成绩统计</a>
-            </li>
-            <li><a href="javascript:void(0);" url="../Admin/pwd.jsp" title="修改密码">
-                <i class="fa fa-caret-right"></i> 修改密码</a>
-            </li>
+<%--            <li><a href="javascript:void(0);" url="../../exam?action=mathTest" title="考试管理">--%>
+<%--                <i class="fa fa-caret-right"></i> 考试管理（高数卷子）</a>--%>
+<%--            </li>--%>
+<%--            <li><a href="javascript:void(0);" url="../../question?action=list" title="题库管理">--%>
+<%--                <i class="fa fa-caret-right"></i> 题库管理</a>--%>
+<%--            </li>--%>
+<%--            <li><a href="javascript:void(0);" url="../../teacher?action=analysis" title="成绩统计">--%>
+<%--                <i class="fa fa-caret-right"></i> 成绩统计</a>--%>
+<%--            </li>--%>
+<%--            <li><a href="javascript:void(0);" url="../Admin/pwd.jsp" title="修改密码">--%>
+<%--                <i class="fa fa-caret-right"></i> 修改密码</a>--%>
+<%--            </li>--%>
             <li><a href="javascript:void(0);" url="info.jsp" title="个人中心">
                     <i class="fa fa-caret-right"></i> 个人中心</a>
             </li>

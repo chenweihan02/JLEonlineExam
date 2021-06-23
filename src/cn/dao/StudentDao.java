@@ -1,28 +1,40 @@
 package cn.dao;
 
 import cn.bean.Student;
-import cn.utils.JdbcUtil;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-
-import java.sql.SQLException;
 
 /**
  * @author xiaochen
- * @create 2021-06-16 21:59
+ * @create 2021-06-20 23:37
  */
-public class StudentDao {
-    private QueryRunner queryRunner = new QueryRunner(JdbcUtil.getDataSource());
+public interface StudentDao {
+
     /**
-     * 学生登录判断
-     * @param s_id
-     * @param s_password
-     * @return
-     * @throws SQLException
+     * 根据学生学号查询过学生信息
+     * @param studentId 学生学号
+     * @return 如果返回 null，说明没有这个学生
      */
-    public Student login(String s_id, String s_password) throws SQLException {
-        String sql = "select * from student where s_id = ? and s_password = ?";
-        Student student = queryRunner.query(sql, new BeanHandler<>(Student.class),s_id,s_password);
-        return student;
-    }
+    public Student queryStudentByUsername(String studentId);
+
+    /**
+     * 根据用户名和密码查询用户信息
+     * @param studentId 学生学号
+     * @param password 密码
+     * @return 如果返回 null，说明没有这个学生
+     */
+    public Student queryStudentByUsernameAndPassword(String studentId, String password);
+
+    /**
+     * 保存注册学生信息
+     * @param student
+     * @return 返回-1表示操作失败，其他是sql语句影响的行数
+     */
+    public int registerStudent(Student student);
+
+    /**
+     * 修改学生信息
+     * @param student
+     * @return 返回-1表示操作失败，其他是sql语句影响的行数
+     */
+    public int saveStudent(Student student);
+
 }

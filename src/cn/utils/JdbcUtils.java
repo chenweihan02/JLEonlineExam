@@ -4,16 +4,14 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * @author xiaochen
  * @create 2021-06-16 19:48
  */
 
-public class JdbcUtil {
+public class JdbcUtils {
     private static ComboPooledDataSource dataSource = new ComboPooledDataSource("testc3p0");
 
     // 获取数据库连接池对象
@@ -32,22 +30,7 @@ public class JdbcUtil {
         return conn;
     }
 
-    public static void closeAll(Connection conn, Statement ps, ResultSet rs) {
-        if (rs != null) {
-            try {
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (ps != null) {
-            try {
-                ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    public static void close(Connection conn) {
         if (conn != null) {
             try {
                 conn.close();

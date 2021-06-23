@@ -9,28 +9,41 @@ import java.util.Date;
  * @create 2021-06-16 20:21
  */
 public class Exam {
-    private Long id;
-    private String e_name; // 考试名称
+    private int id;
+    private String examName; // 考试名称
     private Date startTime; // 开始时间
     private Date endTime; // 结束时间
     private int questionNum; // 试题总数
     private int totalScore; //总分
-    private int idDel; //是否被删除， 1 是被删除，0 是没被删除
+    private int isDel; //是否被删除， 1 是被删除，0 是没被删除
 
-    public Long getId() {
+    public Exam() {
+    }
+
+    public Exam(int id, String examName, Date startTime, Date endTime, int questionNum, int totalScore, int isDel) {
+        this.id = id;
+        this.examName = examName;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.questionNum = questionNum;
+        this.totalScore = totalScore;
+        this.isDel = isDel;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getE_name() {
-        return e_name;
+    public String getExamName() {
+        return examName;
     }
 
-    public void setE_name(String e_name) {
-        this.e_name = e_name;
+    public void setExamName(String examName) {
+        this.examName = examName;
     }
 
     public Date getStartTime() {
@@ -65,11 +78,22 @@ public class Exam {
         this.totalScore = totalScore;
     }
 
-    public int getIdDel() {
-        return idDel;
+    public int getIsDel() { return isDel; }
+
+    public void setIsdDel(int isDel) {
+        this.isDel = isDel;
     }
 
-    public void setIdDel(int idDel) {
-        this.idDel = idDel;
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "id=" + id +
+                ", examName='" + examName + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", questionNum=" + questionNum +
+                ", totalScore=" + totalScore +
+                ", idDel=" + isDel +
+                '}';
     }
 }

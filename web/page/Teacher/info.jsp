@@ -19,15 +19,15 @@
     <table class="tablelist" style="width: 30%;margin-left:50px">
         <tr>
             <td>工号:</td>
-            <td>${user.t_id}</td>
+            <td>${user.teacherId}</td>
         </tr>
         <tr>
             <td>姓名:</td>
-            <td>${user.t_name}</td>
+            <td>${user.name}</td>
         </tr>
         <tr>
             <td>是否为管理员:</td>
-            <td>${user.t_isadmin}</td>
+            <td>${user.isAdmin}</td>
         </tr>
     </table>
 </div>

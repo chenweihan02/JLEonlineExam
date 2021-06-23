@@ -5,7 +5,7 @@ package cn.bean;
  * @create 2021-06-17 7:19
  */
 public class Question {
-    private Long id;
+    private int id;
     private String title;
     private int score;
     private String attrA;
@@ -14,11 +14,11 @@ public class Question {
     private String attrD;
     private String answer;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -77,4 +77,5 @@ public class Question {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
 }

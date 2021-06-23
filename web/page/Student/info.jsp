@@ -19,11 +19,11 @@
     <table class="tablelist" style="width: 30%;margin-left:50px">
         <tr>
             <td>学号:</td>
-            <td>${user.s_id}</td>
+            <td>${user.studentId}</td>
         </tr>
         <tr>
             <td>姓名</td>
-            <td>${user.s_name}</td>
+            <td>${user.name}</td>
         </tr>
     </table>
 </div>

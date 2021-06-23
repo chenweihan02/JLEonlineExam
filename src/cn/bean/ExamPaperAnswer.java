@@ -7,51 +7,51 @@ package cn.bean;
  * @create 2021-06-16 20:28
  */
 public class ExamPaperAnswer {
-    private Long id; //
-    private Long examId; // 所属考试id
-    private Long studentId; // 所属学生id
-    private Long examPaperId; //所属试卷id
-    private Long questionId; // 所属试题id
+    private int id; //
+    private int examId; // 所属考试id
+    private String studentId; // 所属学生id
+    private int examPaperId; //所属试卷id
+    private int questionId; // 所属试题id
     private String answer; // 提交答案
     private int isCorrent; // 是否正确
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getExamId() {
+    public int getExamId() {
         return examId;
     }
 
-    public void setExamId(Long examId) {
+    public void setExamId(int examId) {
         this.examId = examId;
     }
 
-    public Long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
-    public Long getExamPaperId() {
+    public int getExamPaperId() {
         return examPaperId;
     }
 
-    public void setExamPaperId(Long examPaperId) {
+    public void setExamPaperId(int examPaperId) {
         this.examPaperId = examPaperId;
     }
 
-    public Long getQuestionId() {
+    public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 

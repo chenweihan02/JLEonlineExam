@@ -1,4 +1,4 @@
-package cn.dao;
+package cn.dao.Demo;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

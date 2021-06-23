@@ -6,25 +6,25 @@ package cn.bean;
  * @create 2021-06-16 20:40
  */
 public class ExamPaper {
-    private Long id;
-    private Long examId; // 所属考试id
+    private int id;
+    private int examId; // 所属考试id
     private String studentId; // 学号
     private int totalScore; // 总分
     private int score; //该试卷得分
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getExamId() {
+    public int getExamId() {
         return examId;
     }
 
-    public void setExamId(Long examId) {
+    public void setExamId(int examId) {
         this.examId = examId;
     }
 

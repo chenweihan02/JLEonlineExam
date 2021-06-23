@@ -5,40 +5,71 @@ package cn.bean;
  * @create 2021-06-16 20:07
  */
 public class Teacher {
-    private String t_id; // id 工号
-    private String t_name; // 名字
-    private String t_password; // 密码
-    private int t_isadmin; // 0, 1权限
+    private int id;
+    private String teacherId; // id 工号
+    private String name; // 名字
+    private String password; // 密码
+    private int isAdmin; // 0, 1权限
 
-    public String getT_id() {
-        return t_id;
+    public Teacher() {
     }
 
-    public void setT_id(String t_id) {
-        this.t_id = t_id;
+    public Teacher(int id, String teacherId, String name, String password, int isAdmin) {
+        this.id = id;
+        this.teacherId = teacherId;
+        this.name = name;
+        this.password = password;
+        this.isAdmin = isAdmin;
     }
 
-    public String getT_name() {
-        return t_name;
+    public int getId() {
+        return id;
     }
 
-    public void setT_name(String t_name) {
-        this.t_name = t_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getT_password() {
-        return t_password;
+    public String getTeacherId() {
+        return teacherId;
     }
 
-    public void setT_password(String t_password) {
-        this.t_password = t_password;
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public int getT_isadmin() {
-        return t_isadmin;
+    public String getName() {
+        return name;
     }
 
-    public void setT_isadmin(int t_isadmin) {
-        this.t_isadmin = t_isadmin;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", teacherId='" + teacherId + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }
