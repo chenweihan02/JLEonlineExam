@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: xiaochen
-  Date: 2021/6/17
-  Time: 14:03
-  To change this template use File | Settings | File Templates.
---%>
+<%--User: xiaochen Date: 2021/6/17 Time: 14:03--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -46,10 +40,10 @@
 </script>
 <body>
 <div style="padding-left: 10px">
-    <form name="form1" id="form1" method="post">
+    <form name="form1" id="form1" method="post" action="${basePath}teacher?action=search">
         <div class="condition">
             考试名称：<input type="text" name="examName" size="15" max=30>
-            <button style="margin-left: 118px;" type="button" onclick="search()">
+            <button style="margin-left: 118px;" type="submit">
                 <i class="fa fa-search"></i> 查询
             </button>
         </div>

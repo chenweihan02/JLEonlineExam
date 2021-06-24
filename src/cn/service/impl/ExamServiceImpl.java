@@ -28,6 +28,9 @@ public class ExamServiceImpl implements ExamService {
     public List<Exam> queryExams(int isDel) { return examDao.queryExamByIsDel(isDel); }
 
     @Override
+    public List<Exam> queryExams(String examName) { return examDao.queryExamByExamName(examName); }
+
+    @Override
     public int updateExamInfo(Exam exam) { return examDao.updateExam(exam); }
 
     @Override

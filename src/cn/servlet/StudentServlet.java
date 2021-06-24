@@ -21,6 +21,23 @@ import java.util.Map;
 public class StudentServlet extends BaseServlet {
     private ExamPaperServiceImpl examPaperService = new ExamPaperServiceImpl();
     private ExamServiceImpl examService = new ExamServiceImpl();
+
+    /**
+     * listExam 模糊搜索
+     * @param req
+     * @param resp
+     */
+    protected void search(HttpServletRequest req, HttpServletResponse resp) {
+        String examName = req.getParameter("examName");
+//        try {
+//            List<Exam> examList = examService.queryExams(examName);
+//            req.setAttribute("examList", examList);
+//            req.getRequestDispatcher("page/Teacher/log.jsp").forward(req, resp);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    }
+
     /**
      * 获取参加考试的所有考试列表
      * 1. 根据学号，查询所有的exampaper，得到exampaper集合

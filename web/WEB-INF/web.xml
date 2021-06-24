@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!--拦截404,500页面-->
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/error/404.jsp</location>-->
+<!--    </error-page>-->
+<!--    <error-page>-->
+<!--        <error-code>500</error-code>-->
+<!--        <location>/error/500.jsp</location>-->
+<!--    </error-page>-->
+<!--    <filter>-->
+<!--        <filter-name>ErrorFilter</filter-name>-->
+<!--        <filter-class>cn.filter.ErrorFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>ErrorFilter</filter-name>-->
+<!--        <url-pattern>/error.jsp</url-pattern>-->
+<!--        <dispatcher>ERROR</dispatcher>-->
+<!--    </filter-mapping>-->
+
 </web-app>

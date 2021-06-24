@@ -32,6 +32,14 @@ public interface ExamService {
     public List<Exam> queryExams(int isDel);
 
     /**
+     * 模糊查询 考试名称
+     * @param examName
+     * @return
+     */
+    public List<Exam> queryExams(String examName);
+
+
+    /**
      * 更新Exam考场信息
      * @param exam
      */

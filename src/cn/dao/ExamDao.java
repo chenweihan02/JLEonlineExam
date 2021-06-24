@@ -30,6 +30,14 @@ public interface ExamDao {
      */
     List<Exam> queryExamByIsDel(int isDel);
 
+
+    /**
+     * 根据考试名称进行考试模糊搜索
+     * @param examName
+     * @return
+     */
+    List<Exam> queryExamByExamName(String examName);
+
     /**
      * 添加考试信息
      * @param exam

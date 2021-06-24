@@ -2,6 +2,7 @@ package cn.servlet;
 
 import cn.bean.Student;
 import cn.bean.Teacher;
+import cn.service.impl.LogServiceImpl;
 import cn.service.impl.StudentServiceImpl;
 import cn.service.impl.TeacherServiceImpl;
 
@@ -22,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 
     private StudentServiceImpl studentService = new StudentServiceImpl();
     private TeacherServiceImpl teacherService = new TeacherServiceImpl();
-
+    private LogServiceImpl logService = new LogServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req,resp);
@@ -40,6 +41,7 @@ public class LoginServlet extends HttpServlet {
             if (student != null) {
                 session.setAttribute("user", student);
                 resp.sendRedirect("page/Student/index.jsp");
+                logService.record("学生" + student.getName() + student.getStudentId() + "登录成功");
                 System.out.println("学生登录成功");
             }else {
                 System.out.println("学生登录失败");
@@ -50,6 +52,8 @@ public class LoginServlet extends HttpServlet {
             Teacher teacher = teacherService.login(username, password);
             if (teacher != null && teacher.getIsAdmin() == 1) {
                 session.setAttribute("user", teacher);
+                resp.sendRedirect("page/Admin/index.jsp");
+                logService.record("管理员" + teacher.getName() + teacher.getTeacherId() + "登录成功");
                 System.out.println("管理员登录成功");
             }else {
                 System.out.println("管理员登录失败");
@@ -61,6 +65,7 @@ public class LoginServlet extends HttpServlet {
             if (teacher != null) {
                 session.setAttribute("user", teacher);
                 resp.sendRedirect("page/Teacher/index.jsp");
+                logService.record("老师" + teacher.getName() + teacher.getTeacherId() + "登录成功");
                 System.out.println("老师登录成功");
             }else {
                 System.out.println("老师登录失败");

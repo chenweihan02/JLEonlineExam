@@ -1,21 +1,10 @@
 <%@ page import="cn.bean.ExamPaper" %>
 <%@ page import="cn.bean.Exam" %>
-<%@ page import="cn.dao.Demo.DaoFactory" %><%--
-  Created by IntelliJ IDEA.
-  User: xiaochen
-  Date: 2021/6/17
-  Time: 8:19
-  To change this template use File | Settings | File Templates.
---%>
+<%--User: xiaochen Date: 2021/6/17Time: 8:19--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%--<%--%>
-<%--    String path = request.getContextPath();--%>
-<%--    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
-<%--%>--%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,12 +20,11 @@
 </script>
 <body>
 <div style="padding-left: 10px">
-    <form name="form1" id="form1" method="post">
+    <form name="form1" id="form1" method="post" action="${basePath}student?action=search">
         <div class="condition">
-            考试名称：<input type="text" name="e_name" size="15" max=30
-                        value="${exam.e_name}">
-            <button style="margin-left: 118px;" type="button" onclick="search()">
-                <i class="fa fa-search"></i> 查询
+            考试名称：<input type="text" name="examName" size="15" max=30>
+            <button style="margin-left: 118px;" type="submit">
+                <i class="fa fa-search"></i> 查询(未实现)
             </button>
         </div>
     </form>
@@ -63,8 +51,8 @@
             </tr>
         </c:forEach>
     </table>
-    <%--静态包含分页条--%>
-    <%@include file="../common/page_nav.jsp"%>
+<%--    &lt;%&ndash;静态包含分页条&ndash;%&gt;--%>
+<%--    <%@include file="../common/page_nav.jsp"%>--%>
 </div>
 </body>
 </html>

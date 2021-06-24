@@ -28,6 +28,12 @@ public class ExamDaoImpl extends BaseDao implements ExamDao {
     }
 
     @Override
+    public List<Exam> queryExamByExamName(String examName) {
+        String sql = "select * from exam where examName like concat('%',?,'%')";
+        return queryForList(Exam.class,sql,examName);
+    }
+
+    @Override
     public int addExam(Exam exam) {
         String sql = "insert into exam (examName, startTime, endTime) value (?, ?, ?)";
         return update(sql,exam.getExamName(), exam.getStartTime(), exam.getEndTime());

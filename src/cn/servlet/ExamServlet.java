@@ -31,13 +31,8 @@ public class ExamServlet extends BaseServlet {
     protected void page(HttpServletRequest req, HttpServletResponse resp) {
         int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
         int pageSize = WebUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
-
         Page<Exam> page = examService.page(pageNo, pageSize);
-
-
     }
-
-
 
     /**
      * 删除考试 isDel = 1

@@ -11,8 +11,7 @@
     <meta charset="utf-8">
     <title>登录页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-olOxEXxDwd20BlATUibkEnjPN3sVq2YWmYOnsMYutq7X8YcUdD6y/1I+f+ZOq/47" crossorigin="anonymous">--%>
-    <link rel="stylesheet" href="${basePath}static/css/bootstrap.css" />
+    <link rel="stylesheet" href="./login/css/bootstrap.css" />
 </head>
 <body>
 <div class="container" style="margin-top: 200px;">

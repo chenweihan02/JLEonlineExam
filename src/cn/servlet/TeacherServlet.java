@@ -28,6 +28,22 @@ public class TeacherServlet extends BaseServlet {
     private ExamPaperServiceImpl examPaperService = new ExamPaperServiceImpl();
 
     /**
+     * listExam 模糊搜索
+     * @param req
+     * @param resp
+     */
+    protected void search(HttpServletRequest req, HttpServletResponse resp) {
+        String examName = req.getParameter("examName");
+        try {
+            List<Exam> examList = examService.queryExams(examName);
+            req.setAttribute("examList", examList);
+            req.getRequestDispatcher("page/Teacher/listExam.jsp").forward(req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 查询所有没背删除的考试的exam。和学生的一样显示出来，新增回收站，可以撤回删除内容，可以选择恢复考试
      * @param req
      * @param resp
